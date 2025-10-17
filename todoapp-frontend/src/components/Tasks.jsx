@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './Tasks.css'
+import Amend from './Amend';
 
-export default function Tasks() {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:8080/tasks")
-      .then((res) => res.json())
-      .then((data) => setTasks(data))
-      .catch((err) => console.error(err));
-  }, []);
-
+export default function Tasks({ tasks, onTaskChange }) {
+  const monthOrder = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
   const uniqueMonths = [...new Set(tasks.map((task) => task.month))];
+  
+  const sortedMonths = uniqueMonths.sort((a, b) => {
+    return monthOrder.indexOf(a) - monthOrder.indexOf(b);
+  });
 
   return (
     <div className="main-container">
@@ -23,11 +21,11 @@ export default function Tasks() {
         <div className="tasks-box">
           <h2 className="tasks-title">All Tasks</h2>
 
-          {uniqueMonths.length === 0 && (
+          {sortedMonths.length === 0 && (
             <p className="no-tasks">No tasks found.</p>
           )}
 
-          {uniqueMonths.map((month) => (
+          {sortedMonths.map((month) => (
             <div key={month} className="month-section">
               <h3 className="month-title">{month}</h3>
 
@@ -53,11 +51,7 @@ export default function Tasks() {
           ))}
         </div>
 
-        <div className="button-group">
-          <button className="btn btn-add">Add</button>
-          <button className="btn btn-update">Update</button>
-          <button className="btn btn-delete">Delete</button>
-        </div>
+        <Amend onTaskChange={onTaskChange} />
       </main>
     </div>
   );
