@@ -29,7 +29,7 @@ function Amend({ onTaskChange }) {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/tasks', {
+      const response = await fetch('http://3.85.198.2:8080/tasks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

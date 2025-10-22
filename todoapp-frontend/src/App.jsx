@@ -6,7 +6,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = () => {
-    fetch("http://localhost:8080/tasks")
+    fetch("http://3.85.198.2:8080/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.error(err));
