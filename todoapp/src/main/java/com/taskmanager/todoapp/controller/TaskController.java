@@ -17,7 +17,7 @@ import com.taskmanager.todoapp.service.TaskService;
 
 @RestController
 @RequestMapping("/tasks")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = {"http://localhost:5173", "http://todo-webapp-s3.s3-website-us-east-1.amazonaws.com"})
 public class TaskController {
     
     public final TaskService taskService;
