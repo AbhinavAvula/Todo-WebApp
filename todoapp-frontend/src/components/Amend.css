@@ -1,21 +1,19 @@
 .amend-container {
-  max-width: 720px;
+  flex: 4;
   width: 60%;
-  margin: 0 auto;
+  max-width: 720px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   border: 1px solid #e5e7eb;
-  padding: 16px;
-  flex-shrink: 0;
-  max-height: 40%;
+  padding: 18px;
 }
 
 .amend-container h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #1f2937;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   padding-bottom: 8px;
   border-bottom: 2px solid #d1d5db;
 }
@@ -26,19 +24,19 @@
 
 .input-group label {
   display: inline-block;
-  width: 90px;
-  font-weight: 500;
+  width: 95px;
+  font-weight: 600;
   color: #374151;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .input-group input {
-  padding: 5px 8px;
+  width: calc(100% - 105px);
+  padding: 7px 9px;
   border: 1px solid #d1d5db;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  width: calc(100% - 110px);
-  transition: border-color 0.2s;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .input-group input:focus {
@@ -53,47 +51,54 @@
 
 .button-group {
   display: flex;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 8px;
+  margin-top: 14px;
 }
 
 .button-group button {
-  color: white;
-  padding: 6px 20px;
-  border-radius: 6px;
-  border: none;
-  font-weight: 500;
+  flex: 1;
+  padding: 9px 18px;
   font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   transition: all 0.2s;
 }
 
-.button-group button:hover {
+.button-group button:first-child {
+  background-color: #10b981;
+  color: white;
+}
+
+.button-group button:first-child:hover {
+  background-color: #059669;
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.button-group button:nth-child(1) {
-  background-color: #3b82f6;
-}
-
-.button-group button:nth-child(1):hover {
-  background-color: #2563eb;
+  box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
 }
 
 .button-group button:nth-child(2) {
-  background-color: #eab308;
+  background-color: #3b82f6;
+  color: white;
 }
 
 .button-group button:nth-child(2):hover {
-  background-color: #ca8a04;
+  background-color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
 }
 
-.button-group button:nth-child(3) {
+.button-group button:last-child {
   background-color: #ef4444;
+  color: white;
 }
 
-.button-group button:nth-child(3):hover {
+.button-group button:last-child:hover {
   background-color: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2);
+}
+
+.button-group button:active {
+  transform: translateY(0);
 }

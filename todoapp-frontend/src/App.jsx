@@ -1,12 +1,13 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import Tasks from './components/Tasks.jsx'
+import Amend from './components/Amend.jsx'
 
 function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = () => {
-    fetch("http://3.85.198.2:8080/tasks")
+    fetch("http://localhost:8080/tasks")
       .then((res) => res.json())
       .then((data) => setTasks(data))
       .catch((err) => console.error(err));
@@ -17,8 +18,15 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Tasks tasks={tasks} onTaskChange={fetchTasks} />
+    <div className="main-container">
+      <div className="header">
+        <h1 className="header-h1">Todo Manager</h1>
+      </div>
+
+      <main className="main-content">
+        <Tasks tasks={tasks} />
+        <Amend onTaskChange={fetchTasks} />
+      </main>
     </div>
   );
 }
